@@ -4,6 +4,8 @@
 
 ## Installation
 
+Node Version: v16.14.0
+
 ```bash
 $ yarn install
 ```
