@@ -24,6 +24,12 @@ $ docker-compose up -d
 $ cp .env.example .env
 ```
 
+## Seed
+
+```bash
+localhost:3000/api/products
+```
+
 ## Running the app
 
 ```bash
