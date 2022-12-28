@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
-import { GetUser, RawHeaders, RoleProtected } from './decorators';
+import { Auth, GetUser, RawHeaders, RoleProtected } from './decorators';
 import { CreateUserDto, LoginUserDto } from './dto';
 import { User } from './entities/user.entity';
 import { UserRoleGuard } from './guards/user-role/user-role.guard';
@@ -43,6 +43,12 @@ export class AuthController {
   @RoleProtected(ValidRoles.superUser)
   @UseGuards(AuthGuard(), UserRoleGuard)
   testingPrivateRoute2(@GetUser() user: User) {
+    return { message: 'Hola private2', user };
+  }
+
+  @Get('private3')
+  @Auth()
+  testingPrivateRoute3(@GetUser() user: User) {
     return { message: 'Hola private2', user };
   }
 }
